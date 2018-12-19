@@ -3,9 +3,9 @@ const fs          = require('fs');
 const csv         = require('csvtojson');
 
 //usage
-//node screenshot.js sites.csv r // for responsive mode
-//node screenshot.js https://www.commloan.com r  // webpage name on command line
-//node screenshot.js https://www.commloan.com //no responsive mode
+//node bots/screenshot.js bots/sites.csv r                    // for responsive mode
+//node bots/screenshot.js https://www.commloan.com r          // webpage name on command line
+//node bots/screenshot.js https://www.commloan.com            // no responsive mode
 
 async function run() {
   var site, responsive;
