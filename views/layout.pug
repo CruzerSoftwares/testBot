@@ -1,0 +1,43 @@
+doctype html
+head
+  meta(charset='utf-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  meta(name='description', content='TestBot Brower Automation')
+  meta(name='author', content='RN Kushwaha')
+  link(rel='icon', href='images/favicon.ico')
+  title= title
+  link(rel='stylesheet', href='stylesheets/bootstrap.min.css')
+body
+
+nav.navbar.navbar-dark.fixed-top.bg-dark.flex-md-nowrap.p-0.shadow
+  a.navbar-brand.col-sm-3.col-md-2.mr-0(href='#') TestBot
+  input.form-control.form-control-dark.w-100(type='text', placeholder='Search', aria-label='Search')
+  ul.navbar-nav.px-3
+    li.nav-item.text-nowrap
+      a.nav-link(href='#') Sign out
+.container-fluid
+  .row
+    nav.col-md-2.d-none.d-md-block.bg-light.sidebar
+      .sidebar-sticky
+        ul.nav.flex-column
+          li.nav-item
+            a.nav-link.active(href='/')
+              span(data-feather='home') 
+              | Dashboard
+              span.sr-only (current)
+          li.nav-item
+            a.nav-link(href='/screenshots')
+              span(data-feather='image')
+              | ScreenShots
+
+    main.col-md-9.ml-sm-auto.col-lg-10.px-4(role='main')
+      block content
+
+script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js', integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo', crossorigin='anonymous')
+script.
+  window.jQuery || document.write('<script src="javascripts/jquery-3.3.1.slim.min.js"><\\/script>')
+script(src='javascripts/popper.min.js')
+script(src='javascripts/bootstrap.min.js')
+script(src='https://unpkg.com/feather-icons/dist/feather.min.js')
+script.
+  feather.replace()

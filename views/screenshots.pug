@@ -1,0 +1,23 @@
+extends layout
+
+block content
+    .d-flex.justify-content-between.flex-wrap.flex-md-nowrap.align-items-center.pt-3.pb-2.mb-3
+        h1.h2=title
+        .btn-toolbar.mb-2.mb-md-0
+          .btn-group.mr-2
+            button.btn.btn-sm.btn-outline-secondary Share
+            button.btn.btn-sm.btn-outline-secondary Export
+          button.btn.btn-sm.btn-outline-secondary.dropdown-toggle
+            span(data-feather='calendar')
+            | This week
+
+    .row
+      each dir in dirs
+        .col-md-4
+          if(dir.split('.').pop().toLowerCase()=='png')
+            a.btn.btn-default(href=dir.replace("public/",""), role='button', target='_blank')= dir.replace(parts, "") 
+          else
+            a.btn.btn-default(href='/screenshots?d='+dir, role='button')= dir.replace(parts, "") 
+      else
+        .col-md-4
+        | No records found!

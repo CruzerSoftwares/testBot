@@ -1,0 +1,6 @@
+"Date","ProjectID","Hours","Logs"
+"2018-06-27 18:25:00","10959","5:30","Worked on Loan Finder- Data matching and working on speedup results"
+"2018-06-28 18:25:00","10959","8:30","Worked on Loan Finder- Installed Loan Finder module and updated Elastic Search Indexer on Dev & Staging server and fixed rates decimal issue"
+"2018-06-28 18:25:00","10948","0:40","SparkleLock Demo with Peeyush & Purushottam"
+"2018-06-29 18:25:00","10942","3:30","Worked on Add Processor to Assign To Dropdowns in Loan Pipeline"
+"2018-06-29 18:25:00","10959","4:30","Worked on Loan Finder- Fixed Loan Maturity bug"
