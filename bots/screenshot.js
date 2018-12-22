@@ -1,7 +1,7 @@
 const puppeteer   = require('puppeteer');
 const fs          = require('fs');
 const csv         = require('csvtojson');
-
+const nodemailer  = require("nodemailer");
 //usage
 //node bots/screenshot.js bots/sites.csv r                    // for responsive mode
 //node bots/screenshot.js https://www.commloan.com r          // webpage name on command line
@@ -111,6 +111,29 @@ async function run() {
       }
     }
   }
+
+    var smtpTransport = nodemailer.createTransport({
+      service: "gmail",
+      host: "smtp.gmail.com",
+      auth: {
+        user: "youremail@mail.com",
+        pass: "your_pass"
+      }
+    });
+    
+    var mailOptions = {
+        to : 'ramnaresh.kuswaha@onsumaye.com',
+        subject : 'testBot Auto Screen Grabber',
+        text : 'ScreenShots has been taken.'
+    };
+
+    smtpTransport.sendMail(mailOptions, function(error, response){
+      if(error){
+        console.log(error);
+      } else{
+        console.log("Email sent ");
+      }
+    });
 
   browser.close();
 }
