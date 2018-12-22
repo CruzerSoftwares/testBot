@@ -1,4 +1,5 @@
 const puppeteer   = require('puppeteer');
+// const puppeteer   = require('puppeteer-core');
 const fs          = require('fs');
 const csv         = require('csvtojson');
 const nodemailer  = require("nodemailer");
@@ -10,6 +11,7 @@ const nodemailer  = require("nodemailer");
 async function run() {
   var site, responsive;
   const browser  = await puppeteer.launch();
+  // const browser = await puppeteer.launch({executablePath: '/usr/bin/chromium-browser'});
   const page     = await browser.newPage();
   var site       = process.argv.slice(2)[0];
   var responsive = process.argv.slice(3)[0];
