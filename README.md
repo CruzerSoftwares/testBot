@@ -8,4 +8,4 @@ This library provides the way to run automated Browser Tests using Google's Head
  - Save screenshots as pdf or image
  - Scrap contents from websites and save to MongoDB database
 
-We are open for your feedback and suggestions. For any suggestions please write to me rn.kushwaha022@gmail.com.
+We are open for your feedback and suggestions. For any suggestions please write to me support@cruzersoftwares.com.
