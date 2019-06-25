@@ -25,6 +25,8 @@ async function run() {
       fs.mkdirSync(`${rootDir}/${date}`);
   }
 
+  
+
   if(site){
     //if site is url or a csv file
     if(site.search(/.csv$/i)!== -1){
@@ -48,10 +50,69 @@ async function run() {
             fs.mkdirSync(`${rootDir}/${date}/${siteName}`);
         }
 
-        await page.screenshot({
+        // for pdf
+        await page.pdf({
+          path: `${rootDir}/${date}/${siteName}/${filename}.pdf`,
+          printBackground: true,
+          margin: "none",
+          format: "A4",//remove this for 1 page pdf
+        });
+        
+        /*
+        let height = await page.evaluate(
+          () => document.documentElement.offsetHeight
+        );
+        
+        await page.pdf({ 
+          path: `${rootDir}/${date}/${siteName}/${filename}.pdf`,
+          printBackground: true,
+          margin: "none",
+          format: "A4",//remove this for 1 page pdf
+          height: height + "px"// for 1 page pdf
+         });
+         */
+        /*
+        async function screenshotDOMElement(selector, padding = 0) {
+          const rect = await page.evaluate(selector => {
+            const element = document.querySelector(selector);
+            const { x, y, width, height } = element.getBoundingClientRect();
+            return { left: x, top: y, width, height, id: element.id };
+          }, selector);
+
+          await page.pdf({
+            path: `${rootDir}/${date}/${siteName}/${filename}.pdf`,
+            printBackground: true,
+            format: "A4",//remove this for 1 page pdf
+            clip: {
+              x: rect.left - padding,
+              y: rect.top - padding,
+              width: rect.width + padding * 2,
+              height: rect.height + padding * 2
+            }
+          });
+
+          /* // for clip image 
+          return await page.screenshot({
+            path: `${rootDir}/${date}/${siteName}/${filename}.png`,
+            clip: {
+              x: rect.left - padding,
+              y: rect.top - padding,
+              width: rect.width + padding * 2,
+              height: rect.height + padding * 2
+            }
+          });
+          
+        }
+
+        await screenshotDOMElement('#content', 16);
+        */
+
+       
+        //for png
+        /*await page.screenshot({
           path: `${rootDir}/${date}/${siteName}/${filename}.png`,
           fullPage: true
-        });
+        });*/
 
         // Ann array of viewport sizes for different devices.
         if(responsive == 'responsive' || responsive == 'r'){
@@ -118,24 +179,24 @@ async function run() {
       service: "gmail",
       host: "smtp.gmail.com",
       auth: {
-        user: "youremail@mail.com",
-        pass: "your_pass"
+        user: "ram.kushwaha@girnarsoft.com",
+        pass: "be@utiful"
       }
     });
     
     var mailOptions = {
-        to : 'ramnaresh.kuswaha@onsumaye.com',
+        to : 'rn.kushwaha022@gmail.com',
         subject : 'testBot Auto Screen Grabber',
         text : 'ScreenShots has been taken.'
     };
-
+/*
     smtpTransport.sendMail(mailOptions, function(error, response){
       if(error){
         console.log(error);
       } else{
         console.log("Email sent ");
       }
-    });
+    });*/
 
   browser.close();
 }
